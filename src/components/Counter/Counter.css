@@ -1,0 +1,16 @@
+.counter {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px;
+}
+
+.counter > button {
+  background: #ffb7b7;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  border: 0;
+  cursor: pointer;
+}
