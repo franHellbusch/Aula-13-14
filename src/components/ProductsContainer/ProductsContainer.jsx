@@ -1,16 +1,31 @@
 import { useState } from "react";
-import { products } from "../../data/products";
 import { useEffect } from "react";
 import "./ProductsContainer.css";
+import ProductsList from "../ProductsList/ProductsList";
+import axios from "axios";
 
 function ProductsContainer() {
   const [productsData, setProductsData] = useState([]);
 
-  const apiCall = () => {
-    setTimeout(() => {
-      console.log("Se hizo la llada a la api");
-      setProductsData(products);
-    }, 4000);
+  const apiCall = async () => {
+    // async await
+    try {
+      // fetch
+      // const response = await fetch("https://fakestoreapi.com/products");
+      // const data = await response.json();
+
+      // axios
+      const response = await axios.get("https://fakestoreapi.com/products");
+      setProductsData(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+
+    // .then y .catch
+    // fetch("https://fakestoreapi.com/products")
+    //   .then((response) => response.json())
+    //   .then((data) => setProductsData(data))
+    //   .catch((err) => console.error(err));
   };
 
   useEffect(() => {
@@ -18,12 +33,8 @@ function ProductsContainer() {
   }, []);
 
   return (
-    <div>
-      {productsData.length == 0 ? (
-        <div className='loader'></div>
-      ) : (
-        productsData.map((product, index) => <h1 key={index}>{product.title}</h1>)
-      )}
+    <div className='productsContainer'>
+      <ProductsList products={productsData} />
     </div>
   );
 }
