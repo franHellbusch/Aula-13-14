@@ -3,11 +3,12 @@ import { useEffect } from "react";
 import "./ProductsContainer.css";
 import ProductsList from "../ProductsList/ProductsList";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function ProductsContainer() {
   const [productsData, setProductsData] = useState([]);
 
-  const apiCall = async () => {
+  const getProducts = async () => {
     // async await
     try {
       // fetch
@@ -29,7 +30,7 @@ function ProductsContainer() {
   };
 
   useEffect(() => {
-    apiCall();
+    getProducts();
   }, []);
 
   return (

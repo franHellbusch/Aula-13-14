@@ -4,6 +4,8 @@ import Header from "./components/Header/Header";
 import Home from "./components/Home/Home";
 import Saludo from "./components/Saludo/Saludo";
 import ProductsContainer from "./components/ProductsContainer/ProductsContainer";
+import ProductDetailContainer from "./components/ProductDetailContainer/ProductDetailContainer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   // operadores de condicion
@@ -28,9 +30,12 @@ function App() {
   };
 
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <ProductsContainer />
+      <Routes>
+        <Route path='/' element={<ProductsContainer />} />
+        <Route path='/product/:productId' element={<ProductDetailContainer />} />
+      </Routes>
 
       {/* <button onClick={handleChange}>change</button>
       {mostrarHome && <Home/>}
@@ -39,7 +44,7 @@ function App() {
       <Saludo nombre='Francisco'/>
       <Saludo nombre='Mateo'/>
       <Saludo nombre='Marta'/> */}
-    </>
+    </BrowserRouter>
   );
 }
 
