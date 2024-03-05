@@ -3,19 +3,20 @@ import "./ProductDetailContainer.css";
 import axios from "axios";
 import ProductDetail from "../ProductDetail/ProductDetail";
 import { useParams } from "react-router-dom";
+import { useProductsContext } from "../../context/ProductsContext";
 
 function ProductDetailContainer() {
+  const { getProductById } = useProductsContext();
   const [product, setProduct] = useState(null);
 
   const { productId } = useParams();
 
-  const getProductById = async () => {
-    const response = await axios.get(`https://fakestoreapi.com/products/${productId}`);
-    setProduct(response.data);
+  const setProductById = async () => {
+    setProduct(await getProductById(productId));
   };
 
   useEffect(() => {
-    getProductById();
+    setProductById();
   }, []);
 
   return (
