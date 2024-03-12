@@ -12,6 +12,7 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<ProductsContainer />} />
+          <Route path='/category/:category' element={<ProductsContainer />} />
           <Route path='/product/:productId' element={<ProductDetailContainer />} />
         </Routes>
       </ProductsProvider>

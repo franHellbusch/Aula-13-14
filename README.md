@@ -30,3 +30,15 @@ El propósito de esta actividad práctica es permitir que los estudiantes apliqu
 - Utilice GitHub Pages para desplegar su proyecto y obtener una URL accesible públicamente. Esto le permitirá visualizar su trabajo en la web sin necesidad de descargar y ejecutar el código localmente.
 
 Esta actividad es una excelente oportunidad para practicar la integración de HTML, CSS y JavaScript en un proyecto real, permitiéndoles experimentar con el diseño y la programación de una interfaz de usuario desde cero. Es importante recordar que el enfoque está en el proceso de aprendizaje y experimentación, no en la evaluación. ¡Diviértanse y sean creativos con su proyecto!
+
+rules_version = '2';
+
+service cloud.firestore {
+match /databases/{database}/documents {
+match /{document=\*\*} {
+allow read, write: if false;
+}
+}
+}
+
+if request.time < timestamp.date(2024, 4, 8)
