@@ -1,4 +1,3 @@
-import axios from "axios";
 import { createContext, useContext, useState } from "react";
 import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebase/config";

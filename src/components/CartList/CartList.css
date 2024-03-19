@@ -1,0 +1,79 @@
+.CartListContainer {
+  margin-top: 50px;
+  border: 2px solid #e5e5e5;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+}
+
+.CartListContainer > h2 {
+  padding: 20px;
+}
+
+.cartProduct {
+  display: flex;
+  align-items: center;
+  border-top: 2px solid #e5e5e5;
+  padding: 20px;
+  gap: 50px;
+}
+
+.cartDeleteProduct {
+  background: none;
+  border: 0;
+  color: #c2c2c2;
+  cursor: pointer;
+}
+
+.cartDeleteProduct:hover {
+  color: #ff5454;
+}
+
+.cartProduct > img {
+  width: 100px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.cartProductCounter {
+  display: flex;
+  align-items: center;
+}
+
+.cartProductCounter > button {
+  background: #d5d5d5;
+  border: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #7e7e7e;
+}
+
+.cartProductCounter > span {
+  margin: 0 20px;
+  font-size: 20px;
+  color: #575757;
+}
+
+.deleteAllFormCartContainer {
+  padding: 20px;
+  border-top: 2px solid #e5e5e5;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.deleteAllFormCartContainer > button {
+  background: #ff5454;
+  border: 0;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.deleteAllFormCartContainer > button:hover {
+  background: #fd3333;
+}
