@@ -3,15 +3,26 @@ import Header from "./components/Header/Header";
 import ProductsContainer from "./components/ProductsContainer/ProductsContainer";
 import ProductDetailContainer from "./components/ProductDetailContainer/ProductDetailContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import ProductsProvider from "./context/ProductsContext";
+import Cart from "./components/Cart/Cart";
+import CartProvider from "./context/CartContext";
+import Checkout from "./components/Checkout/Checkout";
 
 function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path='/' element={<ProductsContainer />} />
-        <Route path='/product/:productId' element={<ProductDetailContainer />} />
-      </Routes>
+      <ProductsProvider>
+        <CartProvider>
+          <Header />
+          <Routes>
+            <Route path='/' element={<ProductsContainer />} />
+            <Route path='/category/:category' element={<ProductsContainer />} />
+            <Route path='/product/:productId' element={<ProductDetailContainer />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/checkout' element={<Checkout />} />
+          </Routes>
+        </CartProvider>
+      </ProductsProvider>
     </BrowserRouter>
   );
 }
