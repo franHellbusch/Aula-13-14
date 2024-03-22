@@ -1,4 +1,6 @@
+import { addDoc, collection } from "firebase/firestore";
 import { createContext, useContext, useState } from "react";
+import { db } from "../firebase/config";
 
 export const CartContext = createContext();
 
@@ -49,6 +51,22 @@ function CartProvider({ children }) {
     );
   };
 
+  const FinishPurchase = async (user) => {
+    const order = {
+      user,
+      cart,
+      total: cart.reduce((acumulador, item) => acumulador + item.product.price * item.quantity, 0),
+    };
+
+    const reference = collection(db, "orders");
+
+    const docRef = await addDoc(reference, order);
+
+    deleteAllFromCart();
+
+    return docRef.id;
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -57,6 +75,7 @@ function CartProvider({ children }) {
         deleteProductFromCart,
         deleteAllFromCart,
         changeQuantityToProduct,
+        FinishPurchase,
       }}>
       {children}
     </CartContext.Provider>

@@ -29,7 +29,7 @@ function CartList({ cart }) {
               +
             </button>
           </div>
-          <span>${item.product.price}</span>
+          <span>${item.product.price * item.quantity}</span>
         </div>
       ))}
       <div className='deleteAllFormCartContainer'>
